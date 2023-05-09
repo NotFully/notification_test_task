@@ -22,6 +22,9 @@ python manage.py migrate
 python manage.py createsuperuser
 ````
 
+## Токен
+Для корректного обращения к OpenAPI необходимо вставить свой токен в файл config в папке mailings
+
 ## Запуск
 Для запуска проекта необходимо выполнить команду:
 
@@ -30,7 +33,13 @@ python manage.py runserver
 ````
 
 ## Использование
-Просмотреть документацию api: 
+Просмотреть документацию api: http://localhost:8000/docs/
+Итоговое api: http://localhost:8000/
+Рассылки: http://localhost:8000/api/Mailing
+Клиенты: http://localhost:8000/api/Client
+Сообщения: http://localhost:8000/api/Messages
+Обратиться к конкретному элементу: http://localhost:8000/<object>/<pk>
+
 
 ## Тестирование
 Для запуска тестов выполните следующую команду:
