@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .api import MailingViewSet, ClientViewSet, MessageViewSet
+from .views import MailingViewSet, ClientViewSet, MessageViewSet
 
 
 router = routers.DefaultRouter()

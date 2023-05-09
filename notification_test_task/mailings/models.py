@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import RegexValidator
 import pytz
-from datetime import datetime
+from django.utils import timezone
 
 # Create your models here.
 
@@ -29,10 +29,14 @@ class Mailing(models.Model):
 
     @property
     def ability_to_send(self) -> bool:
-        return self.start_date < datetime.now() < self.end_date
+        return self.start_date < timezone.now() < self.end_date
 
     def __str__(self):
         return f"Mailing {self.id}"
+
+    class Meta:
+        verbose_name = "Mailing"
+        verbose_name_plural = "Mailings"
 
 
 class Client(models.Model):
@@ -64,25 +68,35 @@ class Client(models.Model):
     def __str__(self):
         return f"Client: {self.id}. Tag: {self.tag}. Phone number: {self.phone_number}"
 
+    def save(self, *args, **kwargs):
+        super(Client, self).save()  # Call the "real" save() method.
+
+    class Meta:
+        verbose_name = "Client"
+        verbose_name_plural = "Clients"
+
 
 class Message(models.Model):
     sending_date = models.DateTimeField(
-        verbose_name="DateTime of Sending Message"
+        verbose_name="DateTime of Sending Message",
+        auto_now_add=True
     )
     sending_status = models.BooleanField(
         verbose_name="Sending Status",
         default=False
     )
-    mailing_id = models.ForeignKey(
+    mailing = models.ForeignKey(
         Mailing,
-        blank=True,
         on_delete=models.CASCADE
     )
-    client_id = models.ForeignKey(
+    client = models.ForeignKey(
         Client,
-        blank=True,
         on_delete=models.CASCADE
     )
 
     def __str__(self):
         return f"The message {self.id} was sent to the {self.client_id} during the {self.mailing_id}"
+
+    class Meta:
+        verbose_name = "Message"
+        verbose_name_plural = "Messages"
