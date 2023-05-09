@@ -3,7 +3,7 @@ import requests
 from .models import Mailing, Client, Message
 from time import sleep
 from django.db.models import Q
-from notification_test_task.config import TKN, URL
+from .config import TKN, URL
 
 
 def send_message(m_id,  token=TKN, url=URL):
