@@ -33,12 +33,12 @@ python manage.py runserver
 ````
 
 ## Использование
-Просмотреть документацию api: http://localhost:8000/docs/
-Итоговое api: http://localhost:8000/
-Рассылки: http://localhost:8000/api/Mailing
-Клиенты: http://localhost:8000/api/Client
-Сообщения: http://localhost:8000/api/Messages
-Обратиться к конкретному элементу: http://localhost:8000/<object>/<pk>
+Просмотреть документацию api: ```http://localhost:8000/docs/```
+Итоговое api: ```http://localhost:8000/```
+Рассылки: ```http://localhost:8000/api/Mailing```
+Клиенты: ```http://localhost:8000/api/Client```
+Сообщения: ```http://localhost:8000/api/Messages```
+Обратиться к конкретному элементу: ```http://localhost:8000/<object>/<pk>```
 
 
 ## Тестирование
