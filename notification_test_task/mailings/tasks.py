@@ -3,11 +3,7 @@ import requests
 from .models import Mailing, Client, Message
 from time import sleep
 from django.db.models import Q
-
-
-
-TKN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ4MjkwOTMsImlzcyI6ImZhYnJpcXVlIiwibmFtZSI6Imh0dHBzOi8vdC5tZS9uaWxsb3JfciJ9.IUCuehOdksul7FtaN9ETR8NZ-PwtEJ09d8rUqlDX19A"
-URL = "https://probe.fbrq.cloud/v1/send/"
+from notification_test_task.config import TKN, URL
 
 
 def send_message(m_id,  token=TKN, url=URL):
